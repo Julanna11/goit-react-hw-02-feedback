@@ -1,13 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, ButtonList, ButtonClick } from './Feedback.styled';
 
-const FeedbackOptions = ({ onLeaveFeedback, opt }) => (
+const FeedbackOptions = ({ onLeaveFeedback, options }) => (
   <Button>
-    {opt.map(opt => {
+    {options.map(option => {
       return (
-        <ButtonList key={opt}>
-          <ButtonClick type="button" onClick={() => onLeaveFeedback(opt)}>
-            {opt}
+        <ButtonList key={option}>
+          <ButtonClick type="button" onClick={() => onLeaveFeedback(option)}>
+            {option}
           </ButtonClick>
         </ButtonList>
       );
@@ -16,3 +17,8 @@ const FeedbackOptions = ({ onLeaveFeedback, opt }) => (
 );
 
 export default FeedbackOptions;
+
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+};

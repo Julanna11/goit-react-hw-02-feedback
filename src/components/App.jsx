@@ -10,9 +10,9 @@ class App extends React.Component {
     bad: 0,
   };
 
-  handleClick = opt => {
+  handleClick = option => {
     this.setState(prevState => ({
-      [opt]: prevState[opt] + 1,
+      [option]: prevState[option] + 1,
     }));
   };
 
@@ -33,7 +33,7 @@ class App extends React.Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            opt={Object.keys(this.state)}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.handleClick}
           />
         </Section>
